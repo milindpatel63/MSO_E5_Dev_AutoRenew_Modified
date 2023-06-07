@@ -6,16 +6,13 @@ on:
   push:
     branches: 
       - main
-  schedule:
-    - cron: '30 * * * *'
-  watch:
-    types: [started]
+#  schedule:
+#    - cron: '0 0/3 * * *'
   workflow_dispatch:
    
 jobs:
    Task:
     runs-on: ubuntu-22.04
-#    if: github.event.repository.owner.id == github.event.sender.id  # 自己点的 start
     steps:
     - name: Checkout
       uses: actions/checkout@main
@@ -50,7 +47,7 @@ jobs:
         git config --global user.email milindpatel63@gmail.com
         git config --global user.name MSOfficeAutoSubscribeService
         git add .
-        git commit -m "update new refresh token with testApiBot" -a
+        git commit -m "update new refresh token with GitAction" -a
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
